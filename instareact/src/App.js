@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import dummyData from './dummy-data';
-import CommentSection from './components/CommentSection';
-import PostContainer from './components/PostContainer';
-import SearchBar from './components/SearchBar';
+// import CommentSection from './components/CommentSection/CommentSection';
+import PostContainer from './components/PostContainer/PostContainer';
+// import SearchBar from './components/SearchBar/SearchBar';
 
 class App extends Component {
   constructor() {
@@ -14,24 +14,15 @@ class App extends Component {
     };
   }
 
+
+
   // import dummyData from './dummy-data';
+  // gonna use a dummyData.map();
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <p>Howdy!</p>
+      {dummyData.map(postObject => { return <PostContainer post={postObject} />;}  )}
       </div>
     );
   }
