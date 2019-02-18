@@ -2,7 +2,7 @@ import React from 'react';
 
 const SearchBar = () => {
   return (
-    <nav></nav>
+    <nav>Search Bar Unfinished</nav>
   );
 }
 

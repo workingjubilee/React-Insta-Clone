@@ -4,7 +4,7 @@ import './App.css';
 import dummyData from './dummy-data';
 // import CommentSection from './components/CommentSection/CommentSection';
 import PostContainer from './components/PostContainer/PostContainer';
-// import SearchBar from './components/SearchBar/SearchBar';
+import SearchBar from './components/SearchBar/SearchBar';
 
 class App extends Component {
   constructor() {
@@ -21,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <p>Howdy!</p>
+      <SearchBar />
       {dummyData.map(postObject => { return <PostContainer post={postObject} />;}  )}
       </div>
     );
