@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const FitImg = styled.img`
-  max-height: 100px;
+  max-height: 20px;
   object-fit: contain;
 `;
 
@@ -12,14 +12,29 @@ class CommentSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      comments: props.comments,
-      likes: props.likes
+      comments: this.props.comments,
+      likes: this.props.likes,
+      liked: false
     };
   }
 
   likeThis = event => {
-    console.log(event);
+    this.setState(state => ({
+      liked: !state.liked,
+      likes: state.likes += 1
+
+    }))
+
   };
+
+  addNewComment = event => {
+    console.log("Comment!")
+  };
+
+  componentDidUpdate() {
+    console.log(this.state.liked);
+    console.log(this.state.likes)
+  }
 
 
   render() {
