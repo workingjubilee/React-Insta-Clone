@@ -28,8 +28,24 @@ class CommentSection extends Component {
   };
 
   addNewComment = event => {
-    console.log("Comment!")
+    event.preventDefault();
+    const newComments = [...this.state.comments];
+    const newComment = {
+      username: "you",
+      text: this.state.value
+    }
+    newComments.push(newComment);
+    this.setState({
+      comments: [...newComments],
+      value: ''
+    });
   };
+
+  commentChange = event => {
+    this.setState({
+      value: event.target.value
+    });
+  }
 
   componentDidUpdate() {
     console.log(this.state.liked);
@@ -43,8 +59,8 @@ class CommentSection extends Component {
         <FitImg src="/img/hearticon.svg" alt="like button" onClick={this.likeThis} />
         <p>{this.state.likes} likes</p>
         {this.state.comments.map(commentObj => {return <Comment key={commentObj.username + commentObj.text} username={commentObj.username} text={commentObj.text} />})}
-        <form>
-          <input type="text"></input><button>...</button>
+        <form onSubmit={this.addNewComment}>
+          <input value={this.state.value} onChange={this.commentChange} type="text"></input><button>...</button>
         </form>
       </section>
     );
