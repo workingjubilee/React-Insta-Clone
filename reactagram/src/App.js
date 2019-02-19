@@ -11,10 +11,15 @@ class App extends Component {
     super();
 
     this.state = {
+      postArray: []
     };
   }
 
-
+  componentDidMount() {
+    this.setState({
+      postArray: dummyData
+    })
+  };
 
   // import dummyData from './dummy-data';
   // gonna use a dummyData.map();
@@ -22,7 +27,7 @@ class App extends Component {
     return (
       <div className="App">
       <SearchBar />
-      {dummyData.map(postObject => { return <PostContainer key={postObject.timestamp} post={postObject} />;}  )}
+      posts {this.state.postArray.map(postObject => { return <PostContainer key={postObject.timestamp} post={postObject} />;}  )}
       </div>
     );
   }
