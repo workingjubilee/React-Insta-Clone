@@ -15,6 +15,7 @@ class App extends Component {
     };
   }
 
+
   componentDidMount() {
     this.setState({
       postArray: dummyData
@@ -27,7 +28,7 @@ class App extends Component {
     return (
       <div className="App">
       <SearchBar />
-      posts {this.state.postArray.map(postObject => { return <PostContainer key={postObject.timestamp} post={postObject} />;}  )}
+      posts {this.state.postArray.map(postObject => { return <PostContainer key={postObject.timestamp} post={postObject} likeThis={this.likeThis} />;}  )}
       </div>
     );
   }
