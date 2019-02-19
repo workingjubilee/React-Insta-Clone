@@ -10,7 +10,11 @@ const PostBox = styled.article`
 
 const NameHeader = styled.header`
   display: flex;
+`
 
+const FitImg = styled.img`
+  max-height: 100px;
+  object-fit: contain;
 `
 
 const PostContainer = props => {
@@ -19,7 +23,8 @@ const PostContainer = props => {
     <NameHeader><img src={props.post.thumbnailUrl} alt="user" />
     <h1>{props.post.username}</h1></NameHeader>
     <img src={props.post.imageUrl} alt="post" />
-    <p>Likes: {props.post.likes}</p>
+    <FitImg src="/img/hearticon.svg" alt="like button" />
+    <p>{props.post.likes} likes</p>
     <CommentSection comments={props.post.comments} />
     <p>{props.post.timestamp}</p>
     </PostBox>
