@@ -11,14 +11,24 @@ class App extends Component {
     super();
 
     this.state = {
-      postArray: []
+      postArray: [],
+      useArray: [],
+      searchText: ''
     };
+  }
+
+  searchChange = event => {
+    this.setState({
+      searchText: event.target.value,
+      useArray: this.state.postArray.filter(postObject => postObject.username.includes(this.state.searchText))
+    });
   }
 
 
   componentDidMount() {
     this.setState({
-      postArray: dummyData
+      postArray: [...dummyData],
+      useArray: [...dummyData]
     })
   };
 
@@ -27,8 +37,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <SearchBar />
-      posts {this.state.postArray.map(postObject => { return <PostContainer key={postObject.timestamp} post={postObject} likeThis={this.likeThis} />;}  )}
+      <SearchBar searchChange={this.searchChange} />
+      {this.state.useArray.map(postObject => { return <PostContainer key={postObject.timestamp} post={postObject} likeThis={this.likeThis} />;}  )}
       </div>
     );
   }

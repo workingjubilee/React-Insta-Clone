@@ -10,11 +10,11 @@ const FitImg = styled.img`
   object-fit: contain;
 `
 
-const SearchBar = () => {
+const SearchBar = props => {
   return (
     <TopNav>
       <FitImg src="/img/igicon.svg" alt="instagram" /> <FitImg src="/img/iglogo.png" alt="" />
-      Search Bar Unfinished
+      <input type="text" onChange={props.searchChange} />
     </TopNav>
   );
 }

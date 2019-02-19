@@ -60,7 +60,7 @@ class CommentSection extends Component {
         <p>{this.state.likes} likes</p>
         {this.state.comments.map(commentObj => {return <Comment key={commentObj.username + commentObj.text} username={commentObj.username} text={commentObj.text} />})}
         <form onSubmit={this.addNewComment}>
-          <input value={this.state.value} onChange={this.commentChange} type="text"></input><button>...</button>
+          <input value={this.state.value} onChange={this.commentChange} type="text" /><button>...</button>
         </form>
       </section>
     );
