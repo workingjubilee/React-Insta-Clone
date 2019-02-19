@@ -1,17 +1,28 @@
 import React from 'react';
 import CommentSection from '../CommentSection/CommentSection';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const PostBox = styled.article`
+  border: 1px solid silver;
+  max-width: 640px;
+`;
+
+const NameHeader = styled.header`
+  display: flex;
+
+`
 
 const PostContainer = props => {
   return (
-    <article>
-    <img src={props.post.thumbnailUrl} alt="user" />
-    <h1>{props.post.username}</h1>
+    <PostBox>
+    <NameHeader><img src={props.post.thumbnailUrl} alt="user" />
+    <h1>{props.post.username}</h1></NameHeader>
     <img src={props.post.imageUrl} alt="post" />
     <p>Likes: {props.post.likes}</p>
-    <p>{props.post.timestamp}</p>
     <CommentSection comments={props.post.comments} />
-    </article>
+    <p>{props.post.timestamp}</p>
+    </PostBox>
   );
 }
 

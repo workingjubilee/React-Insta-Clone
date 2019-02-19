@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  padding: 25px;
+  /* temporary padding style to make borders more visible */
 }
 
 .App-logo {

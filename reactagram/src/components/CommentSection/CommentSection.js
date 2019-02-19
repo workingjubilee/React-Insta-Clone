@@ -7,7 +7,7 @@ const CommentSection = props => {
     <section>
       {props.comments.map(commentObj => {return <Comment key={commentObj.username + commentObj.text} username={commentObj.username} text={commentObj.text} />})}
       <form>
-        <input type="text"></input><button>Say it!</button>
+        <input type="text"></input><button>...</button>
       </form>
     </section>
   );
