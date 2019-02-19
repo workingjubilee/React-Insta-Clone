@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <div className="App">
       <SearchBar />
-      {dummyData.map(postObject => { return <PostContainer post={postObject} />;}  )}
+      {dummyData.map(postObject => { return <PostContainer key={postObject.timestamp} post={postObject} />;}  )}
       </div>
     );
   }
