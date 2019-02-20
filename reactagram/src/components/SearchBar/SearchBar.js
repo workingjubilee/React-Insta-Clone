@@ -14,7 +14,7 @@ const SearchBar = props => {
   return (
     <TopNav>
       <FitImg src="/img/igicon.svg" alt="instagram" /> <FitImg src="/img/iglogo.png" alt="" />
-      <input searchText={props.searchText} type="text" onChange={props.searchChange} />
+      <input  type="text" onChange={props.searchChange} />
     </TopNav>
   );
 }

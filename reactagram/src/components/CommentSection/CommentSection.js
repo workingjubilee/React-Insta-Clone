@@ -14,7 +14,8 @@ class CommentSection extends Component {
     this.state = {
       comments: this.props.comments,
       likes: this.props.likes,
-      liked: false
+      liked: false,
+      currentText: ''
     };
   }
 
@@ -32,19 +33,19 @@ class CommentSection extends Component {
     const newComments = [...this.state.comments];
     const newComment = {
       username: "you",
-      text: this.state.value
+      text: this.state.currentText
     }
     newComments.push(newComment);
     this.setState({
       comments: [...newComments],
-      value: ''
+      currentText: ''
     });
   };
 
   commentChange = event => {
-    this.setState(state => ({
-      value: event.target.value
-    }));
+    this.setState({
+      currentText: event.target.value
+    });
   }
 
   componentDidUpdate() {
@@ -60,7 +61,7 @@ class CommentSection extends Component {
         <p>{this.state.likes} likes</p>
         {this.state.comments.map(commentObj => {return <Comment key={commentObj.username + commentObj.text} username={commentObj.username} text={commentObj.text} />})}
         <form onSubmit={this.addNewComment}>
-          <input value={this.state.value} onChange={this.commentChange} type="text" /><button>...</button>
+          <input value={this.state.currentText} onChange={this.commentChange} type="text" /><button>...</button>
         </form>
       </section>
     );
