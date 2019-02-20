@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
-import dummyData from './dummy-data';
-// import CommentSection from './components/CommentSection/CommentSection';
 import PostsPage from './components/PostContainer/PostsPage';
+import withAuthenticate from './components/authentication/withAuthenticate.js';
 
 class App extends Component {
   constructor() {
@@ -15,21 +13,6 @@ class App extends Component {
     };
   }
 
-  searchChange = (event) => {
-    this.setState({
-      searchText: event.target.value
-    })
-  }
-
-
-  componentDidMount() {
-    this.setState({
-      postArray: [...dummyData]
-    })
-  };
-
-  // import dummyData from './dummy-data';
-  // gonna use a dummyData.map();
   render() {
     return (
       <div className="App">
