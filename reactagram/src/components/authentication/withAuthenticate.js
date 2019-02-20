@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-const withAuthenticate = App => class extends React.Component {
+const withAuthenticate = AnyComponent => class extends Component {
   render() {
-    return <App />;
+    return <AnyComponent />;
   }
 };
 
