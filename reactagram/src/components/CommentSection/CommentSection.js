@@ -42,9 +42,9 @@ class CommentSection extends Component {
   };
 
   commentChange = event => {
-    this.setState({
+    this.setState(state => ({
       value: event.target.value
-    });
+    }));
   }
 
   componentDidUpdate() {
