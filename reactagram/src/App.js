@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import PostsPage from './components/PostContainer/PostsPage';
+import Login from './components/Login/Login';
 import withAuthenticate from './components/authentication/withAuthenticate';
 
-const AuthenticatedPosts = withAuthenticate(PostsPage)
+const AuthenticatedPage = withAuthenticate(PostsPage)(Login)
 
 class App extends Component {
   constructor() {
@@ -20,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AuthenticatedPosts />
+        <AuthenticatedPage />
       </div>
     );
   }
