@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Comment from './Comment';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Comment from './Comment';
 
 const FitImg = styled.img`
   max-height: 20px;
