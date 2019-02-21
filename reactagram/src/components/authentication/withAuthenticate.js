@@ -1,25 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-const withAuthenticate = Page1 => Page2 => class extends Component {
-  constructor() {
-    super();
-    this.state = {
-      loggedIn: false,
-    }
+const withAuthenticate = Page1 => Page2 => props => {
+  console.log(window.localStorage);
+  if (window.localStorage.getItem('loggedIn') === 'true') {
+    return <Page1 />
+  } else {
+    return <Page2 />
   }
-
-  componentDidMount() {
-      if (localStorage.loggedIn === true) {
-      this.setState({
-        loggedIn: true
-      })
-    }
-  }
-
-  render() {
-    return (
-      <Page2 />
-  )}
-};
+}
 
 export default withAuthenticate;

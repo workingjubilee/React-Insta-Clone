@@ -9,9 +9,7 @@ class Login extends Component {
     };
   }
 
-  componentDidMount() {
-    window.localStorage.clear();
-  }
+
 
   handleInputChange = (event) => {
     const target = event.target;
@@ -24,13 +22,10 @@ class Login extends Component {
   }
 
   handleLogin = (event) => {
-    console.log("Start.");
-    event.preventDefault();
     if (this.state.name === this.state.password && this.state.name.length > 0) {
     window.localStorage.setItem('loggedIn',true);
     console.log(window.localStorage);
   } else {
-    console.log("Nah.");
   }
   }
 

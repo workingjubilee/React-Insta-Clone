@@ -26,10 +26,10 @@ class PostsPage extends Component {
 
   render() {
     return (
-      <>
+      <div>
       <SearchBar searchText={this.state.searchText} searchChange={this.searchChange} />
       {this.state.postArray.filter(postObject => {return postObject.username.includes(this.state.searchText)}).map(postObject => {return <PostContainer key={postObject.timestamp} post={postObject} />;}  )}
-      </>
+      </div>
     );
   }
 }

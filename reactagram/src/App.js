@@ -4,7 +4,7 @@ import PostsPage from './components/PostContainer/PostsPage';
 import Login from './components/Login/Login';
 import withAuthenticate from './components/authentication/withAuthenticate';
 
-const AuthenticatedPage = withAuthenticate(PostsPage)(Login)
+const AuthenticatedPage = withAuthenticate(PostsPage)(Login);
 
 class App extends Component {
   constructor() {
@@ -15,8 +15,10 @@ class App extends Component {
       searchText: ''
     };
   }
-
-
+  // 
+  // componentDidMount() {
+  //   window.localStorage.clear();
+  // }
 
   render() {
     return (
