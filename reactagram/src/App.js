@@ -1,31 +1,51 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
-import dummyData from './dummy-data';
-// import CommentSection from './components/CommentSection/CommentSection';
-import PostContainer from './components/PostContainer/PostContainer';
-import SearchBar from './components/SearchBar/SearchBar';
+import PostsPage from './components/PostContainer/PostsPage';
+import Login from './components/Login/Login';
+import withAuthenticate from './components/authentication/withAuthenticate';
+
+const AuthenticatedPage = withAuthenticate(PostsPage)(Login);
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
+      postArray: [],
+      searchText: ''
     };
   }
+  // 
+  // componentDidMount() {
+  //   window.localStorage.clear();
+  // }
 
-
-
-  // import dummyData from './dummy-data';
-  // gonna use a dummyData.map();
   render() {
     return (
       <div className="App">
-      <SearchBar />
-      {dummyData.map(postObject => { return <PostContainer key={postObject.timestamp} post={postObject} />;}  )}
+        <AuthenticatedPage />
       </div>
     );
   }
 }
+
+//
+// - Authenticate will look a lot like this when you're done setting it up.
+//
+// ```js
+// const authenticate = App =>
+// class extends React.Component {
+//   render() {
+//     return <App />;
+//   }
+// };
+// ```
+
+// const withAuthenticate = App =>
+  // class extends React.Component {
+  //   render() {
+  //     return <App />;
+  //   }
+  // };
 
 export default App;

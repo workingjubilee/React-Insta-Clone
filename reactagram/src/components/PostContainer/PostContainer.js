@@ -10,12 +10,9 @@ const PostBox = styled.article`
 
 const NameHeader = styled.header`
   display: flex;
-`
+`;
 
-const FitImg = styled.img`
-  max-height: 100px;
-  object-fit: contain;
-`
+
 
 const PostContainer = props => {
   return (
@@ -23,13 +20,14 @@ const PostContainer = props => {
     <NameHeader><img src={props.post.thumbnailUrl} alt="user" />
     <h1>{props.post.username}</h1></NameHeader>
     <img src={props.post.imageUrl} alt="post" />
-    <FitImg src="/img/hearticon.svg" alt="like button" />
-    <p>{props.post.likes} likes</p>
-    <CommentSection comments={props.post.comments} />
+    <CommentSection comments={props.post.comments} likes={props.post.likes} />
     <p>{props.post.timestamp}</p>
     </PostBox>
   );
 }
+
+// - Liking posts
+//   - This will be set up a lot like the 'Add a comment...' input. Pass a function down to where your heart icon is, and use `onClick` event handler to increment that post's likes.
 
 PostContainer.propTypes = {
   post: PropTypes.shape({
