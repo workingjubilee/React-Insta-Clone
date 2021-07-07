@@ -11,18 +11,34 @@ class App extends Component {
     super();
 
     this.state = {
+      postArray: [],
+      useArray: [],
+      searchText: ''
     };
   }
 
+  searchChange = event => {
+    this.setState({
+      searchText: event.target.value,
+      useArray: this.state.postArray.filter(postObject => postObject.username.includes(this.state.searchText))
+    });
+  }
 
+
+  componentDidMount() {
+    this.setState({
+      postArray: [...dummyData],
+      useArray: [...dummyData]
+    })
+  };
 
   // import dummyData from './dummy-data';
   // gonna use a dummyData.map();
   render() {
     return (
       <div className="App">
-      <SearchBar />
-      {dummyData.map(postObject => { return <PostContainer key={postObject.timestamp} post={postObject} />;}  )}
+      <SearchBar searchChange={this.searchChange} />
+      {this.state.useArray.map(postObject => { return <PostContainer key={postObject.timestamp} post={postObject} likeThis={this.likeThis} />;}  )}
       </div>
     );
   }
